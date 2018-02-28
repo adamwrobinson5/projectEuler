@@ -7,15 +7,15 @@ import math
 # of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-# print('***** PROBLEM 1 *****')
-# arr = []
-# sum = 0
-# for x in range(1,1000):
-#     if (x % 3 == 0 or x % 5 == 0):
-#         arr.append(x)
-#         sum += x
-# print arr
-# print sum
+print('***** PROBLEM 1 *****')
+arr = []
+sum = 0
+for x in range(1,1000):
+    if (x % 3 == 0 or x % 5 == 0):
+        arr.append(x)
+        sum += x
+print arr
+print sum
 
 
 
@@ -26,22 +26,22 @@ import math
 # will be: 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-# print('***** PROBLEM 2 *****')
-# fibArr = [1,2]
-# evenArr = [2]
-# sumEven = 2
-# add = 0
-# x = 2
-# while add < 4000000:
-#     add = fibArr[x-1] + fibArr[(x-2)]
-#     if add % 2 == 0:
-#         evenArr.append(add)
-#         sumEven += add
-#     fibArr.append(add)
-#     x += 1
-# fibArr.remove(add)
-# print evenArr
-# print sumEven
+print('***** PROBLEM 2 *****')
+fibArr = [1,2]
+evenArr = [2]
+sumEven = 2
+add = 0
+x = 2
+while add < 4000000:
+    add = fibArr[x-1] + fibArr[(x-2)]
+    if add % 2 == 0:
+        evenArr.append(add)
+        sumEven += add
+    fibArr.append(add)
+    x += 1
+fibArr.remove(add)
+print evenArr
+print sumEven
 
 
 
@@ -50,14 +50,14 @@ import math
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143?
 
-# print('***** PROBLEM 3 *****')
-# primeArray = []
-# x = 600851475143
-# for i in range(3,int(math.sqrt(x))):
-#     while x % i == 0:
-#         primeArray.append(i)
-#         x = x/i
-# print primeArray[-1]
+print('***** PROBLEM 3 *****')
+primeArray = []
+x = 600851475143
+for i in range(3,int(math.sqrt(x))):
+    while x % i == 0:
+        primeArray.append(i)
+        x = x/i
+print primeArray[-1]
 
 
 
@@ -68,5 +68,4 @@ import math
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
 print('***** PROBLEM 4 *****')
-print 100 * 100
-print 999 * 999
+
