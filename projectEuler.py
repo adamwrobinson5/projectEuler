@@ -7,7 +7,7 @@ import math
 # of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-# print('***** PROBLEM 1 *****')
+# print '***** PROBLEM 1 *****'
 # arr = []
 # sum = 0
 # for x in range(1,1000):
@@ -25,7 +25,7 @@ import math
 # will be: 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-# print('***** PROBLEM 2 *****')
+# print '***** PROBLEM 2 *****'
 # fibArr = [1,2]
 # evenArr = [2]
 # sumEven = 2
@@ -48,7 +48,7 @@ import math
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143?
 
-# print('***** PROBLEM 3 *****')
+# print '***** PROBLEM 3 *****'
 # primeArray = []
 # x = 600851475143
 # for i in range(3,int(math.sqrt(x))):
@@ -65,30 +65,70 @@ import math
 # palindrome made from the product of two 2-digit numbers is 9009 = 91 * 99.
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-print('***** PROBLEM 4 *****')
-a = 999
-b = 999
-palArray = []
-while b >= 100:
-    a = 999
-    while a >= 100:
-        front = []
-        back = []
-        revBack = []
-        mult = a * b
-        num = str(mult)
-        if len(num) == 6:
-            for i in range(0, 3):
-                front.append(int(num[i]))
-            for j in range(3, 6):
-                back.append(int(num[j]))
-            revBack.append(back[2])
-            revBack.append(back[1])
-            revBack.append(back[0])
-            if cmp(front, revBack) == 0:
-                palArray.append(mult)
-        a -= 1
-    b -= 1
-sort = sorted(palArray)
-largestPalindrome = sort[-1]
-print largestPalindrome
+# print '***** PROBLEM 4 *****'
+# a = 999
+# b = 999
+# palArray = []
+# while b >= 100:
+#     a = 999
+#     while a >= 100:
+#         front = []
+#         back = []
+#         revBack = []
+#         mult = a * b
+#         num = str(mult)
+#         if len(num) == 6:
+#             for i in range(0, 3):
+#                 front.append(int(num[i]))
+#             for j in range(3, 6):
+#                 back.append(int(num[j]))
+#             revBack.append(back[2])
+#             revBack.append(back[1])
+#             revBack.append(back[0])
+#             if cmp(front, revBack) == 0:
+#                 palArray.append(mult)
+#         a -= 1
+#     b -= 1
+# sort = sorted(palArray)
+# largestPalindrome = sort[-1]
+# print largestPalindrome
+
+
+
+
+# ***** PROBLEM 5 *****
+# 2520 is the smallest number that can be divided by each of the numbers 
+# from 1 to 10 without any remainder. What is the smallest positive number 
+# that is evenly divisible by all of the numbers from 1 to 20?
+
+print '***** PROBLEM 5 *****'
+# for x in range(1, 6000):
+#     check = 0
+#     for y in range(1,21):
+#         if x % y != 0:
+#             break
+#         else:
+#             check += 1
+#         if check == 20:
+#             print x
+num = 1
+primeArray = []
+for x in range(2,21):
+    primeCheck = 0
+    for y in range(2, x+1):
+        if x % y != 0:
+            primeCheck += 1
+        elif x != 2:
+            break
+        if primeCheck == x-2 or x == 2:
+            pwr = 1
+            exp = 0
+            while exp < 20:
+                exp = x**pwr
+                primeArray.append(x)
+                pwr += 1
+            primeArray.remove(x)
+            break
+for i in range(0, len(primeArray)):
+    num *= primeArray[i]
+print num
