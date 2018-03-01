@@ -102,15 +102,6 @@ import math
 # that is evenly divisible by all of the numbers from 1 to 20?
 
 print '***** PROBLEM 5 *****'
-# for x in range(1, 6000):
-#     check = 0
-#     for y in range(1,21):
-#         if x % y != 0:
-#             break
-#         else:
-#             check += 1
-#         if check == 20:
-#             print x
 num = 1
 primeArray = []
 for x in range(2,21):
