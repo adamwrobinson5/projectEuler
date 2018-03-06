@@ -172,24 +172,20 @@ import math
 # print ''
 # print '*** PROBLEM 7 ***'
 # print ''
-# primeArray = [2]
-# n = 110000
-# check = 0
+# primeArray = []
 # done = False
-# for x in range(2, n):
-#     for y in range(2, x):
-#         if x % y == 0:
-#             break
-#         else:
-#             check += 1
-#         if check == (x-2):
-#             primeArray.append(x)
-#         if len(primeArray) == 10001:
-#             done = True
-#             break
+# def prime(x):
+#     for j in range(2, int(math.floor(math.sqrt(x)+1))):
+#         if x % j == 0:
+#             return 0
+#     return 1
+# for i in range(2, 110000):
+#     if prime(i) == 1:
+#         primeArray.append(i)
+#     if len(primeArray) == 10001:
+#         done = True
 #     if done == True:
 #         break
-#     check = 0
 # print primeArray[-1]
 
 
@@ -279,6 +275,19 @@ import math
 # # The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 # # Find the sum of all the primes below two million.
 
-print ''
-print '*** PROBLEM 10 ***'
-print ''
+# print ''
+# print '*** PROBLEM 10 ***'
+# print ''
+# sum = 0
+# primeArray = []
+# def prime(x):
+#     if x % 1000 == 0:
+#         print 'i: ' + str(x)
+#     for j in range(2, int(math.floor(math.sqrt(x)+1))):
+#         if x % j == 0:
+#             return 0
+#     return 1
+# for i in range(2, 2000000):
+#     if prime(i) == 1:
+#         sum += i
+# print sum
