@@ -660,14 +660,12 @@ for i in range(0, 100):
     for j in range(0, 50):
         num.append(first[j])
     numArray.append(num)
-# print numArray
 for i in range(1, 51):
     nextAdd = []
     sum = carry
     carry = 0
     for j in range(0, 100):
         sum += int(numArray[j][-i])
-        print sum
     if len(str(sum)) > 1:
         stringSum = str(sum)
         for k in range(0, len(stringSum)):
