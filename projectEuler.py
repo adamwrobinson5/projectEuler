@@ -1,6 +1,8 @@
 # #Project Euler
 
 import math
+import sys
+import time
 
 # # ***** PROBLEM 1 *****
 # # If we list all the natural numbers below 10 that are multiples 
@@ -10,11 +12,9 @@ import math
 # print ''
 # print '*** PROBLEM 1 ***'
 # print ''
-# arr = []
 # sum = 0
 # for x in range(1,1000):
 #     if (x % 3 == 0 or x % 5 == 0):
-#         arr.append(x)
 #         sum += x
 # print 'ANSWER: ' + str(sum)
 
@@ -733,11 +733,33 @@ import math
 
 
 # # ***** PROBLEM 13 *****
-# # Starting in the top left corner of a 2×2 grid, and only being able to move
+# # Starting in the top left corner of a 2*2 grid, and only being able to move
 # # to the right and down, there are exactly 6 routes to the bottom right corner.
-# # How many such routes are there through a 20×20 grid?
+# # How many such routes are there through a 20*20 grid?
+# # print ''
+# # print '*** PROBLEM 13 ***'
+# # print ''
+# # right = 0
+# # down = 0
+# # count = 0
+# # def path(r, d):             # This takes over a week to run. I stopped it after
+# #     global count            # 46 hours and it was only about a 6th of the way through
+# #     if r != 5:
+# #         path(r + 1, d)
+# #     if d != 5:
+# #         path(r, d + 1)
+# #     if r == 5 and d == 5:
+# #         count += 1
+# # path(right, down)
+# # print count
 
+
+# Problem 13 Optimized
 print ''
 print '*** PROBLEM 13 ***'
 print ''
-    
+product = 1                     # This solves the problem in .051 seconds. It indirectly
+for i in range(21,41):          # solves the problem by finding the permutations
+    product *= i
+permutation = product / math.factorial(20)
+print '' permutation
