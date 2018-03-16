@@ -689,19 +689,14 @@ import time
 
 # # ***** PROBLEM 14 *****
 # # The following iterative sequence is defined for the set of positive integers:
-
 # # n -> n/2 (n is even)
 # # n -> 3n + 1 (n is odd)
-
 # # Using the rule above and starting with 13, we generate the following sequence:
-
 # # 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
 # # It can be seen that this sequence (starting at 13 and finishing at 1) contains 10
 # # terms. Although it has not been proved yet (Collatz Problem), it is thought that 
 # # all starting numbers finish at 1.
-
 # # Which starting number, under one million, produces the longest chain?
-
 # # *Once the chain starts the terms are allowed to go above one million.*
 
 # print ''
@@ -736,6 +731,7 @@ import time
 # # Starting in the top left corner of a 2*2 grid, and only being able to move
 # # to the right and down, there are exactly 6 routes to the bottom right corner.
 # # How many such routes are there through a 20*20 grid?
+
 # # print ''
 # # print '*** PROBLEM 15 ***'
 # # print ''
@@ -795,3 +791,36 @@ import time
 print ''
 print '*** PROBLEM 17 ***'
 print ''
+sum = 0
+ones = {0:'',1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine'}
+teens = {10:'ten',11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',17:'seventeen',18:'eighteen',19:'nineteen'}
+tens = {2:'twenty',3:'thirty',4:'forty',5:'fifty',6:'sixty',7:'seventy',8:'eighty',9:'ninety'}
+for i in range(1,1001):
+    number = str(i)
+    if len(number) == 1:
+        sum += len(ones[i])
+    if len(number) == 2:
+        if i < 20:
+            sum += len(teens[i])
+        elif int(number[1]) == 0:
+            sum += len(tens[int(number[0])])
+        else:
+            sum += len(tens[int(number[0])] + ones[int(number[1])])
+    if len(number) == 3:
+        lastTwo = number[1:]
+        if lastTwo == '00':
+            sum += len(str(ones[int(number[:1])]) + 'hundred')
+            continue
+        hund = str(ones[int(number[:1])]) + 'hundredand'
+        if int(lastTwo) < 10:
+            sum += len(hund + ones[int(lastTwo)])
+        elif int(lastTwo) > 9 and int(lastTwo) < 20:
+            sum += len(hund + teens[int(lastTwo)])
+        elif int(number[2]) == 0:
+            sum += len(hund + tens[int(number[1])])
+        else:
+            sum += len(hund + tens[int(number[1])] + ones[int(number[2])])
+    if len(number) == 4:
+        sum += len('onethousand')
+print sum
+            
