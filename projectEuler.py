@@ -687,7 +687,7 @@ import time
 
 
 
-# # ***** PROBLEM 12 *****
+# # ***** PROBLEM 14 *****
 # # The following iterative sequence is defined for the set of positive integers:
 
 # # n -> n/2 (n is even)
@@ -705,7 +705,7 @@ import time
 # # *Once the chain starts the terms are allowed to go above one million.*
 
 # print ''
-# print '*** PROBLEM 12 ***'
+# print '*** PROBLEM 14 ***'
 # print ''
 # largestSequence = 0
 # largestN = 0
@@ -732,12 +732,12 @@ import time
 
 
 
-# # ***** PROBLEM 13 *****
+# # ***** PROBLEM 15 *****
 # # Starting in the top left corner of a 2*2 grid, and only being able to move
 # # to the right and down, there are exactly 6 routes to the bottom right corner.
 # # How many such routes are there through a 20*20 grid?
 # # print ''
-# # print '*** PROBLEM 13 ***'
+# # print '*** PROBLEM 15 ***'
 # # print ''
 # # right = 0
 # # down = 0
@@ -754,12 +754,23 @@ import time
 # # print count
 
 
-# Problem 13 Optimized
-print ''
-print '*** PROBLEM 13 ***'
-print ''
-product = 1                     # This solves the problem in .051 seconds. It indirectly
-for i in range(21,41):          # solves the problem by finding the permutations
-    product *= i
-permutation = product / math.factorial(20)
-print '' permutation
+# # Problem 15 Optimized
+# print ''
+# print '*** PROBLEM 15 ***'
+# print ''
+# product = 1                     # This solves the problem in .051 seconds. It indirectly
+# for i in range(21,41):          # solves the problem by finding the permutations
+#     product *= i
+# permutation = product / math.factorial(20)
+# print '' permutation
+
+
+
+
+# # ***** PROBLEM 16 *****
+# 2**15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+# What is the sum of the digits of the number 2**1000?
+
+# print ''
+# print '*** PROBLEM 16 ***'
+# print ''
