@@ -758,7 +758,7 @@ import time
 # for i in range(21,41):          # solves the problem by finding the permutations
 #     product *= i
 # permutation = product / math.factorial(20)
-# print '' permutation
+# print permutation
 
 
 
@@ -788,39 +788,104 @@ import time
 # # contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use
 # # of "and" when writing out numbers is in compliance with British usage.
 
+# print ''
+# print '*** PROBLEM 17 ***'
+# print ''
+# sum = 0
+# ones = {0:'',1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine'}
+# teens = {10:'ten',11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',17:'seventeen',18:'eighteen',19:'nineteen'}
+# tens = {2:'twenty',3:'thirty',4:'forty',5:'fifty',6:'sixty',7:'seventy',8:'eighty',9:'ninety'}
+# for i in range(1,1001):
+#     number = str(i)
+#     if len(number) == 1:
+#         sum += len(ones[i])
+#     if len(number) == 2:
+#         if i < 20:
+#             sum += len(teens[i])
+#         elif int(number[1]) == 0:
+#             sum += len(tens[int(number[0])])
+#         else:
+#             sum += len(tens[int(number[0])] + ones[int(number[1])])
+#     if len(number) == 3:
+#         lastTwo = number[1:]
+#         if lastTwo == '00':
+#             sum += len(str(ones[int(number[:1])]) + 'hundred')
+#             continue
+#         hund = str(ones[int(number[:1])]) + 'hundredand'
+#         if int(lastTwo) < 10:
+#             sum += len(hund + ones[int(lastTwo)])
+#         elif int(lastTwo) > 9 and int(lastTwo) < 20:
+#             sum += len(hund + teens[int(lastTwo)])
+#         elif int(number[2]) == 0:
+#             sum += len(hund + tens[int(number[1])])
+#         else:
+#             sum += len(hund + tens[int(number[1])] + ones[int(number[2])])
+#     if len(number) == 4:
+#         sum += len('onethousand')
+# print sum
+
+
+
+
+# # ***** PROBLEM 18 *****
+# # By starting at the top of the triangle below and moving to adjacent
+# # numbers on the row below, the maximum total from top to bottom is 23.
+# #    3
+# #   7 4
+# #  2 4 6
+# # 8 5 9 3
+# # That is, 3 + 7 + 4 + 9 = 23.
+# # Find the maximum total from top to bottom of the triangle below:
+# #                             75
+# #                           95  64
+# #                         17  47  82
+# #                       18  35  87  10
+# #                     20  04  82  47  65
+# #                   19  01  23  75  03  34
+# #                 88  02  77  73  07  63  67
+# #               99  65  04  28  06  16  70  92
+# #             41  41  26  56  83  40  80  70  33
+# #           41  48  72  33  47  32  37  16  94  29
+# #         53  71  44  65  25  43  91  52  97  51  14
+# #       70  11  33  28  77  73  17  78  39  68  17  57
+# #     91  71  52  38  17  14  91  43  58  50  27  29  48
+# #   63  66  04  68  89  53  67  30  73  16  69  87  40  31
+# # 04  62  98  27  23  09  70  98  73  93  38  53  60  04  23
+
 print ''
-print '*** PROBLEM 17 ***'
+print '*** PROBLEM 18 ***'
 print ''
-sum = 0
-ones = {0:'',1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine'}
-teens = {10:'ten',11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',17:'seventeen',18:'eighteen',19:'nineteen'}
-tens = {2:'twenty',3:'thirty',4:'forty',5:'fifty',6:'sixty',7:'seventy',8:'eighty',9:'ninety'}
-for i in range(1,1001):
-    number = str(i)
-    if len(number) == 1:
-        sum += len(ones[i])
-    if len(number) == 2:
-        if i < 20:
-            sum += len(teens[i])
-        elif int(number[1]) == 0:
-            sum += len(tens[int(number[0])])
+
+triangle = '\
+75\n\
+95 64\n\
+17 47 82\n\
+18 35 87 10\n\
+20 04 82 47 65\n\
+19 01 23 75 03 34\n\
+88 02 77 73 07 63 67\n\
+99 65 04 28 06 16 70 92\n\
+41 41 26 56 83 40 80 70 33\n\
+41 48 72 33 47 32 37 16 94 29\n\
+53 71 44 65 25 43 91 52 97 51 14\n\
+70 11 33 28 77 73 17 78 39 68 17 57\n\
+91 71 52 38 17 14 91 43 58 50 27 29 48\n\
+63 66 04 68 89 53 67 30 73 16 69 87 40 31\n\
+04 62 98 27 23 09 70 98 73 93 38 53 60 04 23'
+
+triArray = []
+numArray = []
+j = 13
+i = 0
+
+for line in triangle.split('\n'):
+    triArray.append(map(int,line.split(' ')))
+while j > -1:                                   # Started from the bottom and created my own version of "minimum cost path" algorithm
+    for i in range(0, len(triArray[j])):
+        if triArray[j+1][i] > triArray[j+1][i+1]:
+            triArray[j][i] += triArray[j+1][i]
         else:
-            sum += len(tens[int(number[0])] + ones[int(number[1])])
-    if len(number) == 3:
-        lastTwo = number[1:]
-        if lastTwo == '00':
-            sum += len(str(ones[int(number[:1])]) + 'hundred')
-            continue
-        hund = str(ones[int(number[:1])]) + 'hundredand'
-        if int(lastTwo) < 10:
-            sum += len(hund + ones[int(lastTwo)])
-        elif int(lastTwo) > 9 and int(lastTwo) < 20:
-            sum += len(hund + teens[int(lastTwo)])
-        elif int(number[2]) == 0:
-            sum += len(hund + tens[int(number[1])])
-        else:
-            sum += len(hund + tens[int(number[1])] + ones[int(number[2])])
-    if len(number) == 4:
-        sum += len('onethousand')
-print sum
-            
+            triArray[j][i] += triArray[j+1][i+1]
+    i = 0
+    j -= 1
+print triArray[0][0]
